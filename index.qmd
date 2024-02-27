@@ -1,0 +1,26 @@
+---
+title: "Urmi dictionary"
+format: html
+---
+
+here will be long text
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(DT)
+
+df <- readxl::read_xlsx("data.xlsx")
+
+df |> 
+  select(lemma, pos, verb_pattern, morphology, meaning, example, etymology, dialect, stylistic) |> 
+  mutate(pos = factor(pos),
+         verb_pattern = factor(verb_pattern)) |> 
+  datatable(filter = "top",
+            options = list(pageLength = 30, dom = 'top'))
+
+```
+
