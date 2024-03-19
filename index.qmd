@@ -1,9 +1,9 @@
 ---
 title: "Urmi dictionary"
-format: 
+format:
   html:
     page-layout: full
-editor_options: 
+editor_options:
   chunk_output_type: console
 ---
 
