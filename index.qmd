@@ -3,6 +3,8 @@ title: "Urmi dictionary"
 format: 
   html:
     page-layout: full
+editor_options: 
+  chunk_output_type: console
 ---
 
 here will be long text
@@ -18,11 +20,14 @@ library(DT)
 df <- readxl::read_xlsx("data.xlsx")
 
 df |> 
-  select(lemma, pos, verb_pattern, morphology, meaning, example, etymology, dialect, stylistic) |> 
-  mutate(pos = factor(pos),
-         verb_pattern = factor(verb_pattern)) |> 
+  rename(id = word_id,
+         v_stem = verb_pattern,
+         part_of_speech = pos) |> 
+  select(id, lemma, part_of_speech, v_stem, morphology, meaning, example, etymology, dialect, stylistic) |> 
+  mutate(part_of_speech = factor(part_of_speech),
+         v_stem = factor(v_stem)) |> 
   datatable(filter = "top",
+            rownames = FALSE,
             options = list(pageLength = 30, dom = 'top'))
-
 ```
 
