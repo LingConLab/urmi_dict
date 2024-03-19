@@ -1,6 +1,8 @@
 ---
 title: "Urmi dictionary"
-format: html
+format: 
+  html:
+    page-layout: full
 ---
 
 here will be long text
