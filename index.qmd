@@ -22,7 +22,7 @@ df <- readxl::read_xlsx("data.xlsx")
 df |> 
   rename(id = word_id,
          v_stem = verb_pattern,
-         part_of_speech = pos) |> 
+         part_of_speech = PoS) |> 
   select(id, lemma, part_of_speech, v_stem, morphology, meaning, example, etymology, dialect, stylistic) |> 
   mutate(part_of_speech = factor(part_of_speech),
          v_stem = factor(v_stem)) |> 
